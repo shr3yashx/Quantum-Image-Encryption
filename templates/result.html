@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Processed Images</h1>
+    <div class="container">
+        <h2>Encrypted Image:</h2>
+        <img src="/uploads/{{ encrypted_image }}" alt="Encrypted Image">
+        <h2>Decrypted Image:</h2>
+        <img src="/uploads/{{ decrypted_image }}" alt="Decrypted Image">
+    </div>
+    <hr>
+    <a href="/">Back to Home</a>
+</body>
+</html>
