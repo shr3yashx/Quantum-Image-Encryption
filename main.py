@@ -11,8 +11,6 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Utility functions
-
 def quantum_xor(image, key):
     return np.bitwise_xor(image, key)
 
@@ -32,7 +30,6 @@ def decrypt_image(encrypted, key, original_shape):
     decrypted = cv2.resize(decrypted, (original_shape[1], original_shape[0]), interpolation=cv2.INTER_NEAREST)
     return decrypted
 
-# Flask routes
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -53,12 +50,10 @@ def process():
     image = cv2.imread(filepath)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-    # Encrypt the image
     encrypted_image, key, original_shape = encrypt_image(image)
     encrypted_path = os.path.join(app.config['UPLOAD_FOLDER'], 'encrypted_image.png')
     cv2.imwrite(encrypted_path, cv2.cvtColor(encrypted_image, cv2.COLOR_RGB2BGR))
 
-    # Decrypt the image
     decrypted_image = decrypt_image(encrypted_image, key, original_shape)
     decrypted_path = os.path.join(app.config['UPLOAD_FOLDER'], 'decrypted_image.png')
     cv2.imwrite(decrypted_path, cv2.cvtColor(decrypted_image, cv2.COLOR_RGB2BGR))
