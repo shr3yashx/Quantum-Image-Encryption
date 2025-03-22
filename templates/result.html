@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encryption Results</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      min-height: 100vh;
+    }
+    .container {
+      margin-top: 30px;
+    }
+    .result-card {
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      border: none;
+      border-radius: 10px;
+    }
+    .result-card img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .header-title {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="header-title text-center">Encryption Results</h1>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card result-card">
+          <img src="/uploads/{{ encrypted_image }}" class="card-img-top" alt="Encrypted Image">
+          <div class="card-body">
+            <h5 class="card-title text-center">Encrypted</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card result-card">
+          <img src="/uploads/{{ decrypted_image }}" class="card-img-top" alt="Decrypted Image">
+          <div class="card-body">
+            <h5 class="card-title text-center">Decrypted</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card result-card">
+          <img src="/uploads/{{ visualization_image }}" class="card-img-top" alt="Visualization">
+          <div class="card-body">
+            <h5 class="card-title text-center">Visualization</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto mt-4">
+      <a href="/" class="btn btn-secondary">Try Another Image</a>
+    </div>
+  </div>
+  <!-- Bootstrap JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
